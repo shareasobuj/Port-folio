@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAREA SOBUJ | Personal Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        accent: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#home" class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+                    SHAREA SOBUJ
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-primary-600 dark:hover:text-primary-400 transition">Home</a>
+                    <a href="#about" class="hover:text-primary-600 dark:hover:text-primary-400 transition">About</a>
+                    <a href="#skills" class="hover:text-primary-600 dark:hover:text-primary-400 transition">Skills</a>
+                    <a href="#projects" class="hover:text-primary-600 dark:hover:text-primary-400 transition">Projects</a>
+                    <a href="#contact" class="hover:text-primary-600 dark:hover:text-primary-400 transition">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i id="theme-icon" class="fas fa-moon text-sm"></i>
+                    </button>
+                    <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold shadow-sm transition">
+                        Hire Me
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#home" class="block py-2 hover:text-primary-600">Home</a>
+            <a href="#about" class="block py-2 hover:text-primary-600">About</a>
+            <a href="#skills" class="block py-2 hover:text-primary-600">Skills</a>
+            <a href="#projects" class="block py-2 hover:text-primary-600">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-primary-600">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 dark:bg-primary-950/60 border border-primary-500/20 text-primary-700 dark:text-primary-300 text-xs font-semibold">
+                        <span class="w-2.5 h-2.5 rounded-full bg-accent-500 animate-pulse"></span>
+                        Available for Freelance & Full-Stack Projects
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Hi, I'm <br>
+                        <span class="bg-gradient-to-r from-primary-600 via-indigo-500 to-accent-500 bg-clip-text text-transparent">
+                            SHAREA SOBUJ
+                        </span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl font-semibold text-slate-600 dark:text-slate-300">
+                        I am a <span id="typing-text" class="text-primary-600 dark:text-primary-400 typing-cursor"></span>
+                    </p>
+
+                    <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                        Building responsive, modern, and high-performance web applications with clean code and smart user interfaces. Passionate about turning creative ideas into impactful digital solutions.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm shadow-lg shadow-primary-600/25 transition flex items-center gap-2">
+                            View My Work <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-primary-600 font-semibold text-sm transition flex items-center gap-2">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Direct Quick Contact -->
+                    <div class="pt-4 flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+                        <button onclick="copyText('01310289829', 'Phone Number')" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 hover:bg-primary-50 dark:hover:bg-slate-800 transition">
+                            <i class="fas fa-phone text-accent-500"></i> 01310289829 <i class="far fa-copy text-xs opacity-70"></i>
+                        </button>
+                        <button onclick="copyText('shareasobuj9829@gmail.com', 'Email Address')" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 hover:bg-primary-50 dark:hover:bg-slate-800 transition">
+                            <i class="fas fa-envelope text-primary-500"></i> shareasobuj9829@gmail.com <i class="far fa-copy text-xs opacity-70"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-500 rounded-3xl blur opacity-25"></div>
+                        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-center shadow-xl">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-primary-600 to-accent-500 p-1 mb-5">
+                                <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-white text-4xl font-extrabold">
+                                    SS
+                                </div>
+                            </div>
+                            <h2 class="text-2xl font-bold">SHAREA SOBUJ</h2>
+                            <p class="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">Full-Stack Web Developer</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                                <i class="fas fa-location-dot mr-1 text-accent-500"></i> Bangladesh
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-3 my-6 py-4 border-y border-slate-200 dark:border-slate-800">
+                                <div>
+                                    <div class="text-xl font-extrabold text-primary-600">15+</div>
+                                    <div class="text-xs text-slate-500">Projects</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold text-accent-500">100%</div>
+                                    <div class="text-xs text-slate-500">Responsive</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold text-indigo-500">24/7</div>
+                                    <div class="text-xs text-slate-500">Support</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center gap-3">
+                                <a href="https://github.com/shareasobuj?tab=repositories" target="_blank" aria-label="GitHub" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-primary-600 hover:text-white flex items-center justify-center transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="mailto:shareasobuj9829@gmail.com" aria-label="Email" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-primary-600 hover:text-white flex items-center justify-center transition">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="tel:+8801310289829" aria-label="Call" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-accent-600 hover:text-white flex items-center justify-center transition">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="https://wa.me/8801310289829" target="_blank" aria-label="WhatsApp" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-900/50 border-y border-slate-200/70 dark:border-slate-800 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">About Me</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Crafting Clean & Smart Digital Experiences</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p>
+                        Hello! I'm <strong>SHAREA SOBUJ</strong>, a dedicated web developer focused on building responsive, user-friendly, and dynamic websites. I specialize in modern front-end and full-stack technologies including HTML5, CSS3, JavaScript, React, Node.js, and Firebase.
+                    </p>
+                    <p>
+                        Whether it's a personal portfolio, business landing page, or interactive web application, I prioritize clean architecture, fast loading speeds, and mobile-first design across all devices.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-primary-500/10 text-primary-600 flex items-center justify-center mb-3">
+                            <i class="fas fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="font-bold text-base">Mobile-First Design</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Optimized seamlessly for smartphones, tablets, and desktops.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-600 flex items-center justify-center mb-3">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="font-bold text-base">Fast Performance</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Lightweight code engineered for smooth animations and instant load times.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-3">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-base">Clean Code</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Maintainable, well-structured HTML, CSS, and JavaScript standards.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center mb-3">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-bold text-base">Modern Security</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Best practices in web safety, authentication, and data protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">My Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Technical Skills & Tools</h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-html5 text-3xl text-orange-600 mb-3"></i>
+                    <h3 class="font-bold">HTML5 & CSS3</h3>
+                    <p class="text-xs text-slate-500 mt-1">Semantic Markup, Flexbox, Grid, Tailwind CSS</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-js text-3xl text-yellow-500 mb-3"></i>
+                    <h3 class="font-bold">JavaScript (ES6+)</h3>
+                    <p class="text-xs text-slate-500 mt-1">DOM Manipulation, Async/Await, REST APIs</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-react text-3xl text-blue-500 mb-3"></i>
+                    <h3 class="font-bold">React.js</h3>
+                    <p class="text-xs text-slate-500 mt-1">Components, Hooks, Single Page Applications</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-node-js text-3xl text-emerald-600 mb-3"></i>
+                    <h3 class="font-bold">Node.js & Express</h3>
+                    <p class="text-xs text-slate-500 mt-1">Backend APIs, Server Logic, Authentication</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fas fa-database text-3xl text-amber-500 mb-3"></i>
+                    <h3 class="font-bold">Firebase & Cloud</h3>
+                    <p class="text-xs text-slate-500 mt-1">Realtime Database, Firestore, Hosting</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-python text-3xl text-indigo-500 mb-3"></i>
+                    <h3 class="font-bold">Python</h3>
+                    <p class="text-xs text-slate-500 mt-1">Scripting, Automation, Data Handling</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-wordpress text-3xl text-blue-600 mb-3"></i>
+                    <h3 class="font-bold">WordPress</h3>
+                    <p class="text-xs text-slate-500 mt-1">Custom Themes, Plugins, Speed Optimization</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition shadow-sm">
+                    <i class="fab fa-git-alt text-3xl text-rose-500 mb-3"></i>
+                    <h3 class="font-bold">Git & GitHub</h3>
+                    <p class="text-xs text-slate-500 mt-1">Version Control, CI/CD, GitHub Pages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-slate-900/50 border-y border-slate-200/70 dark:border-slate-800 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">Portfolio</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Featured Projects</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-primary-600 text-white transition">All Projects</button>
+                <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-primary-600 hover:text-white transition">Web Apps</button>
+                <button onclick="filterProjects('ui')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-primary-600 hover:text-white transition">Landing Pages</button>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition" data-category="web">
+                    <div class="h-48 bg-gradient-to-br from-primary-600 to-indigo-700 p-6 flex flex-col justify-between text-white">
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold w-fit">Web App</span>
+                        <h3 class="text-xl font-bold">TalkTalk Real-Time Chat</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            A mobile-first real-time messaging web application powered by Firebase Realtime Database with instant notifications and admin controls.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-primary-600 dark:text-primary-400">
+                            <span class="px-2.5 py-1 rounded-md bg-primary-500/10">HTML/CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-primary-500/10">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-primary-500/10">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition" data-category="web">
+                    <div class="h-48 bg-gradient-to-br from-emerald-600 to-teal-700 p-6 flex flex-col justify-between text-white">
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold w-fit">FinTech UI</span>
+                        <h3 class="text-xl font-bold">Nexus Neo Bank</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            A responsive digital banking interface featuring an interactive EMI loan calculator, account dashboard, and modern glassmorphism design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition" data-category="ui">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 p-6 flex flex-col justify-between text-white">
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-semibold w-fit">Portal & API</span>
+                        <h3 class="text-xl font-bold">Dynamic Registration Portal</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            An automated event and alumni registration platform integrated directly with Google Sheets API for seamless real-time data management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-purple-600 dark:text-purple-400">
+                            <span class="px-2.5 py-1 rounded-md bg-purple-500/10">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-purple-500/10">Sheets API</span>
+                            <span class="px-2.5 py-1 rounded-md bg-purple-500/10">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://github.com/shareasobuj?tab=repositories" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:opacity-90 transition shadow-md">
+                    <i class="fab fa-github text-lg"></i> Explore All Repositories on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Let's Work Together</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Have a project in mind or want to collaborate? Reach out directly via phone, email, or the form below.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Contact Info Cards -->
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-600 flex items-center justify-center shrink-0">
+                            <i class="fas fa-phone text-lg"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-bold text-base">Phone / WhatsApp</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">01310289829</p>
+                            <div class="flex gap-3 mt-3">
+                                <a href="tel:+8801310289829" class="text-xs font-semibold text-accent-600 hover:underline">Call Now</a>
+                                <button onclick="copyText('01310289829', 'Phone Number')" class="text-xs font-semibold text-slate-500 hover:text-primary-600">Copy Number</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-600 flex items-center justify-center shrink-0">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-bold text-base">Email Address</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1 break-all">shareasobuj9829@gmail.com</p>
+                            <div class="flex gap-3 mt-3">
+                                <a href="mailto:shareasobuj9829@gmail.com" class="text-xs font-semibold text-primary-600 hover:underline">Send Email</a>
+                                <button onclick="copyText('shareasobuj9829@gmail.com', 'Email Address')" class="text-xs font-semibold text-slate-500 hover:text-primary-600">Copy Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
+                            <i class="fab fa-github text-xl"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-bold text-base">GitHub Profile</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1 break-all">github.com/shareasobuj</p>
+                            <a href="https://github.com/shareasobuj?tab=repositories" target="_blank" class="inline-block mt-3 text-xs font-semibold text-primary-600 hover:underline">View Repositories &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Your Name</label>
+                                <input type="text" id="sender-name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-primary-600 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Your Email</label>
+                                <input type="email" id="sender-email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-primary-600 text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Subject</label>
+                            <input type="text" id="sender-subject" required placeholder="Project Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-primary-600 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Message</label>
+                            <textarea id="sender-message" rows="4" required placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-primary-600 text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-accent-600 hover:opacity-95 text-white font-semibold text-sm shadow-lg shadow-primary-600/20 transition flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="text-xl font-extrabold text-white tracking-tight">SHAREA SOBUJ</span>
+                <p class="text-xs text-slate-400 mt-1">Full-Stack Web Developer & UI Designer</p>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a href="https://github.com/shareasobuj?tab=repositories" target="_blank" class="hover:text-white transition"><i class="fab fa-github text-lg"></i></a>
+            </div>
+            <p class="text-xs text-slate-500">&copy; 2026 SHAREA SOBUJ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium shadow-2xl">
+        <i class="fas fa-check-circle text-accent-500"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlEl.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+            const isDark = htmlEl.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeIcon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Typing Effect
+        const roles = ['Full-Stack Web Developer', 'Frontend UI/UX Designer', 'JavaScript Enthusiast', 'Responsive Web Specialist'];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingEl = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            typingEl.textContent = isDeleting
+                ? currentRole.substring(0, charIndex - 1)
+                : currentRole.substring(0, charIndex + 1);
+
+            charIndex += isDeleting ? -1 : 1;
+
+            let speed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentRole.length) {
+                speed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                speed = 400;
+            }
+            setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+
+        // Project Filter
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary-600', 'text-white');
+                btn.classList.add('bg-slate-100', 'dark:bg-slate-800');
+            });
+            event.target.classList.remove('bg-slate-100', 'dark:bg-slate-800');
+            event.target.classList.add('bg-primary-600', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Copy & Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+
+        function copyText(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${label} copied: ${text}`);
+            });
+        }
+
+        // Contact Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('sender-name').value;
+            const subject = document.getElementById('sender-subject').value;
+            const message = document.getElementById('sender-message').value;
+            
+            showToast(`Thank you ${name}! Opening your email client...`);
+            setTimeout(() => {
+                window.location.href = `mailto:shareasobuj9829@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\n\n' + message)}`;
+            }, 800);
+        });
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        function handleScroll() {
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    </script>
+</body>
+</html>
